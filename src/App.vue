@@ -17,12 +17,21 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1>{{ name }}</h1>
-  <button @click="increment">{{ count }}</button>
+  <section>
+    <h1>{{ name }}</h1>
+    <button @click="increment">{{ count }}</button>
+  </section>
 </template>
 
-<style>
+<style scoped>
+  section {
+    padding: 20px;
+  }
+
   button {
-    background-color: blue;
+    padding: 1em;
+    min-width: 6em;
+    font-size: 2em;
+    font-weight: 900;
   }
 </style>
