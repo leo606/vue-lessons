@@ -4,34 +4,33 @@ import { defineComponent } from "vue"
 export default defineComponent({
   data() {
     return {
-      count: 0,
-      name: 'Counter'
+      users: [
+        { name: 'user one', age: 12, isActive: false },
+        { name: 'user two', age: 20, isActive: true },
+        { name: 'user three', age: 23, isActive: true }
+      ]
     }
   },
   methods: {
-    increment() {
-      this.count += 1
-    }
+
   }
 })
 </script>
 
 <template>
   <section>
-    <h1>{{ name }}</h1>
-    <button @click="increment">{{ count }}</button>
+    <li v-for="user in users" :class="{ active: user.isActive }" >
+      {{ user.name }}
+    </li>
   </section>
 </template>
 
 <style scoped>
-  section {
-    padding: 20px;
-  }
+section {
+  padding: 20px;
+}
 
-  button {
-    padding: 1em;
-    min-width: 6em;
-    font-size: 2em;
-    font-weight: 900;
-  }
+.active {
+  background-color: aquamarine;
+}
 </style>
