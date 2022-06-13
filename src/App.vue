@@ -14,7 +14,8 @@ export default defineComponent({
   methods: {
     getRandomNumber() {
       const randomNum = Math.ceil(Math.random() * 100)
-      this.$refs.randomDiv.innerHTML = randomNum
+      const randomDiv = this.$refs.randomDiv as HTMLDivElement
+      randomDiv.innerHTML = randomNum.toString()
     }
   }
 })
@@ -25,7 +26,7 @@ export default defineComponent({
     <li v-for="user in users" :class="{ active: user.isActive }">
       {{ user.name }}
     </li>
-    <div ref="randomDiv" ></div>
+    <div ref="randomDiv"></div>
     <button @click="getRandomNumber">Get a random number</button>
   </section>
 </template>
@@ -34,7 +35,6 @@ export default defineComponent({
 section {
   padding: 20px;
 }
-
 .active {
   background-color: aquamarine;
 }
