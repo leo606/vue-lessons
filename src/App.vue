@@ -9,12 +9,12 @@ export default defineComponent({
         { name: 'user two', age: 20, isActive: true },
         { name: 'user three', age: 23, isActive: true },
       ],
-      randomNumber: 0
     }
   },
   methods: {
     getRandomNumber() {
-      this.randomNumber = Math.ceil(Math.random() * 100)
+      const randomNum = Math.ceil(Math.random() * 100)
+      this.$refs.randomDiv.innerHTML = randomNum
     }
   }
 })
@@ -25,7 +25,7 @@ export default defineComponent({
     <li v-for="user in users" :class="{ active: user.isActive }">
       {{ user.name }}
     </li>
-    <div> {{ randomNumber }} </div>
+    <div ref="randomDiv" ></div>
     <button @click="getRandomNumber">Get a random number</button>
   </section>
 </template>
